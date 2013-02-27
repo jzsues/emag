@@ -1,6 +1,6 @@
 ### About
 
-Chartee is a charting library which currently supports ios platform.
+EMag is a scaffolding using to create flipboard-like app.
 
 ###Screenshots
 
