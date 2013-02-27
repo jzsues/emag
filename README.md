@@ -4,7 +4,6 @@ EMag is a scaffolding using to create flipboard-like app.
 
 ###Screenshots
 ![](https://github.com/zhiyu/emag/raw/master/screenshots/1.png)
-
 ![](https://github.com/zhiyu/emag/raw/master/screenshots/2.png)
 
 ###The MIT License
