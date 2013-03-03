@@ -31,7 +31,7 @@
 {
     self = [super init];
     if (self) {
-       
+        
     }
     return self;
 }
@@ -47,6 +47,10 @@
 #pragma mark - EMag data api
 
 -(void)getChannels{
+    float h = self.view.frame.size.height;
+    float w = self.view.frame.size.width;
+    
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"channels" ofType:@"json"];
     NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     NSMutableArray *data = [jsonString mutableObjectFromJSONString];
@@ -57,7 +61,7 @@
         magEngine.paneSpacing = 10;
         magEngine.paneBackgroundColor = [UIColor colorWithRed:100/255.f green:175/255.f blue:1 alpha:0.8];
         
-        self.channelView = [magEngine getEMagScrollView:CGRectMake(0, 15, 320, 450) pageFrame:CGRectMake(15, 0, 230, 450) count:data.count layout:@"11-11-11-11"];
+        self.channelView = [magEngine getEMagScrollView:CGRectMake(0, 15, 320, h-30) pageFrame:CGRectMake(15, 0, 230, h-30) count:data.count layout:@"11-11-11-11"];
         channelView.delegate = self;
         [channelView release];
         [magEngine release];
@@ -93,17 +97,18 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView
 {
-    [super loadView];    
+    [super loadView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    float h = self.view.frame.size.height;
+    float w = self.view.frame.size.width;
+    
     self.bgView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"loading"]];
     [bgView release];
     [self.view addSubview:bgView];
-    
-    //self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
     
     //loading view
     self.loadingView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"loading"]];
@@ -115,7 +120,7 @@
     [loadingView addSubview:logoView];
     [logoView release];
     
-    UILabel *copyright = [[UILabel alloc] initWithFrame:CGRectMake(20,420, 200, 30)];
+    UILabel *copyright = [[UILabel alloc] initWithFrame:CGRectMake(20,h-60, 200, 30)];
     copyright.text = @"©2012 http://github.com/zhiyu";
     copyright.font = [UIFont systemFontOfSize:12];
     copyright.textColor = [UIColor whiteColor];
@@ -123,7 +128,7 @@
     [loadingView addSubview:copyright];
     [copyright release];
     
-    UIButton *toHome = [[UIButton alloc] initWithFrame:CGRectMake(250, 400, 50, 50)];
+    UIButton *toHome = [[UIButton alloc] initWithFrame:CGRectMake(250, h-80, 50, 50)];
     [toHome setImage:[ResourceHelper loadImage:@"opr_home"] forState:UIControlStateNormal];
     [toHome setImage:[ResourceHelper loadImage:@"opr_home"] forState:UIControlStateSelected];
     [toHome addTarget:self action:@selector(showMainView) forControlEvents:UIControlEventTouchUpInside];
@@ -137,33 +142,33 @@
     
     
     [self getChannels];
-
+    
     
     
     //menu view
-    self.menuView = [[UIView alloc] initWithFrame:CGRectMake(270, 0, 32, 480)];
+    self.menuView = [[UIView alloc] initWithFrame:CGRectMake(270, 0, 32, h)];
     UIImageView *menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_download"]];
-    menuItemView.frame = CGRectMake(0,185, 32, 32);
+    menuItemView.frame = CGRectMake(0,h-295, 32, 32);
     [menuView addSubview:menuItemView];
     [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_clear"]];
-    menuItemView.frame = CGRectMake(0,245, 32, 32);
+    menuItemView.frame = CGRectMake(0,h-235, 32, 32);
     [menuView addSubview:menuItemView];
     [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_refresh"]];
-    menuItemView.frame = CGRectMake(0,305, 32, 32);
+    menuItemView.frame = CGRectMake(0,h-175, 32, 32);
     [menuView addSubview:menuItemView];
     [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_set"]];
-    menuItemView.frame = CGRectMake(0,365, 32, 32);
+    menuItemView.frame = CGRectMake(0,h-115, 32, 32);
     [menuView addSubview:menuItemView];
     [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_add"]];
-    menuItemView.frame = CGRectMake(0,425, 32, 32);
+    menuItemView.frame = CGRectMake(0,h-55, 32, 32);
     [menuView addSubview:menuItemView];
     [menuItemView release];
     
@@ -187,7 +192,7 @@
 	[UIView commitAnimations];
 }
 
--(void)panePressed:(id)sender{    
+-(void)panePressed:(id)sender{
     self.requestUrl = @"http://iphone.myzaker.com/zaker/blog.php?app_id=785";
     
     [MessageHelper load:self message:nil detail:nil view:nil delay:0];
@@ -204,17 +209,17 @@
         ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:reqUrl];
         [request setTimeOutSeconds:10];
         [request setDelegate:self];
-        [request startAsynchronous];        
+        [request startAsynchronous];
     }
 }
 
 -(void)showChannel:(NSArray *)data{
-    CATransition *transition = [CATransition animation]; 
+    CATransition *transition = [CATransition animation];
     transition.duration = 0.5f;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]; 
-    transition.type = @"cube"; 
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = @"cube";
     transition.subtype = kCATransitionFromRight;
-    transition.delegate = self;     
+    transition.delegate = self;
     [self.view.layer addAnimation:transition forKey:nil];
     channelViewController.items = data;
     [channelViewController fresh];
@@ -253,7 +258,7 @@
 #pragma mark - EMagScrollView Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-   // NSLog(@"scrollViewDidScroll");
+    // NSLog(@"scrollViewDidScroll");
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView // called on start of dragging (may require some time and or distance to move)
@@ -263,7 +268,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate // called on finger up if the user dragged. decelerate is true if it will continue moving afterwards
 {
-     //NSLog(@"scrollViewDidEndDragging");
+    //NSLog(@"scrollViewDidEndDragging");
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView  // called on finger up as we are moving

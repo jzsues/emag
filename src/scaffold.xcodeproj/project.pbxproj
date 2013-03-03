@@ -51,6 +51,7 @@
 		26D9C4A2157CABB400756CB2 /* EMagSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D9C495157CABB400756CB2 /* EMagSender.m */; };
 		26D9C4A3157CABB400756CB2 /* EMagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D9C497157CABB400756CB2 /* EMagView.m */; };
 		26D9C4A4157CABB400756CB2 /* EMagWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D9C499157CABB400756CB2 /* EMagWrapperView.m */; };
+		26FFA43516E2F25800CF795E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FFA43416E2F25800CF795E /* Default-568h@2x.png */; };
 		5A2544F6150D9C4B0027ED41 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2544F5150D9C4B0027ED41 /* Icon@2x.png */; };
 		5A36658B1520618C00263467 /* channels.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A36658A1520618B00263467 /* channels.json */; };
 		5A42AFB4155B8698005B8078 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42AFB3155B8698005B8078 /* JSONKit.m */; };
@@ -178,6 +179,7 @@
 		26D9C497157CABB400756CB2 /* EMagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMagView.m; sourceTree = "<group>"; };
 		26D9C498157CABB400756CB2 /* EMagWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMagWrapperView.h; sourceTree = "<group>"; };
 		26D9C499157CABB400756CB2 /* EMagWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMagWrapperView.m; sourceTree = "<group>"; };
+		26FFA43416E2F25800CF795E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5A2544F5150D9C4B0027ED41 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		5A36658A1520618B00263467 /* channels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = channels.json; path = ../channels.json; sourceTree = "<group>"; };
 		5A42AFB2155B8698005B8078 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		5A53C5B1150880A10000ACE9 = {
 			isa = PBXGroup;
 			children = (
+				26FFA43416E2F25800CF795E /* Default-568h@2x.png */,
 				5A53C5C6150880A10000ACE9 /* scaffold */,
 				5A53C5BF150880A10000ACE9 /* Frameworks */,
 				5A53C5BD150880A10000ACE9 /* Products */,
@@ -590,6 +593,7 @@
 				269EA78216DDD08100BBF2EA /* 6@2x.png in Resources */,
 				269EA78316DDD08100BBF2EA /* 7.png in Resources */,
 				269EA78416DDD08100BBF2EA /* 7@2x.png in Resources */,
+				26FFA43516E2F25800CF795E /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

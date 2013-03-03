@@ -8,7 +8,7 @@
 #import "EMagChannelViewController.h"
 #import "EMagPaneView.h"
 #import "EMagEngine.h"
-#import <QuartzCore/QuartzCore.h> 
+#import <QuartzCore/QuartzCore.h>
 #import "ResourceHelper.h"
 
 @implementation EMagChannelViewController
@@ -36,17 +36,20 @@
 - (void)loadView
 {
     [super loadView];
+    float h = self.view.frame.size.height;
+    float w = self.view.frame.size.width;
+    
     self.view.frame = CGRectMake(0, 0,self.view.frame.size.width, self.view.frame.size.height);
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 480-32, 32, 32)];
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, h-32, 32, 32)];
     [back setImage:[ResourceHelper loadImage:@"opr_back"] forState:UIControlStateNormal];
     [back setImage:[ResourceHelper loadImage:@"opr_back"] forState:UIControlStateSelected];
     [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
     [back release];
     
-    UIButton *fresh = [[UIButton alloc] initWithFrame:CGRectMake(320-32, 480-32, 32, 32)];
+    UIButton *fresh = [[UIButton alloc] initWithFrame:CGRectMake(320-32, h-32, 32, 32)];
     [fresh setImage:[ResourceHelper loadImage:@"opr_fresh"] forState:UIControlStateNormal];
     [fresh setImage:[ResourceHelper loadImage:@"opr_fresh"] forState:UIControlStateSelected];
     [fresh addTarget:self action:@selector(fresh) forControlEvents:UIControlEventTouchUpInside];
@@ -92,13 +95,13 @@
 }
 
 -(void)back{
-    CATransition *transition = [CATransition animation]; 
+    CATransition *transition = [CATransition animation];
     transition.duration = 1.0f;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]; 
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     transition.type = @"rippleEffect";
     transition.subtype = kCATransitionFromRight;
-    transition.delegate = self;     
-    [self.view.superview.layer addAnimation:transition forKey:nil]; 
+    transition.delegate = self;
+    [self.view.superview.layer addAnimation:transition forKey:nil];
     [self.view removeFromSuperview];
 }
 
