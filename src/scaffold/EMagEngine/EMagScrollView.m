@@ -32,10 +32,7 @@
         }
     }
 
-    return [panes autorelease];
+    return panes;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 @end

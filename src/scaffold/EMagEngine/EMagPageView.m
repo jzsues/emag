@@ -26,6 +26,6 @@
             [panes addObject:view];
         }
     }
-    return [panes autorelease];
+    return panes;
 }
 @end

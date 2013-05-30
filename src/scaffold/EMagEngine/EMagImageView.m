@@ -21,7 +21,6 @@
         float h = self.bounds.size.height;
         
         self.loader = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((w-20)/2, (h-20)/2, 20, 20)];
-        [loader release];
         [loader setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
         [loader setHidesWhenStopped:YES];
         [self addSubview:loader];  
@@ -44,10 +43,8 @@
             [self render:[UIImage imageNamed:url]];
         }else{
             self.reqUrl = [[NSURL alloc] initWithString: requestUrl];
-            [reqUrl release];
             
             self.request = [[ASIHTTPRequest alloc] initWithURL:reqUrl];
-            [request release];
             
             [request setTimeOutSeconds:10];
             [request setDelegate:self];
@@ -85,17 +82,11 @@
     self.image = img;
     self.contentMode = UIViewContentModeScaleAspectFill;  
     [self setNeedsDisplay];   
-    [img release];
     [loader stopAnimating];
 }
 
 - (void)dealloc {  
     [request clearDelegatesAndCancel];
-    [request release];
-    [loader release];  
-    [requestUrl release];  
-    [reqUrl release];  
-    [super dealloc];  
 } 
 
 @end

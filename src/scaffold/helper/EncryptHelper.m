@@ -6,7 +6,7 @@
 //
 
 #import "EncryptHelper.h"
-#import <commoncrypto/CommonDigest.h>  
+#import <CommonCrypto/CommonDigest.h>  
 
 #define CHUNK_SIZE 1024
 

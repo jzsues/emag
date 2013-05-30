@@ -11,13 +11,13 @@
 
 @interface EMagMainViewController : UIViewController<UIScrollViewDelegate>
 
-@property(nonatomic,retain) UIView *loadingView;
-@property(nonatomic,retain) EMagScrollView *channelView;
-@property(nonatomic,retain) UIView *menuView;
-@property(nonatomic,retain) UIView *bgView;
-@property (nonatomic, retain) NSString *requestUrl;
-@property (nonatomic, retain) NSURL *reqUrl;
-@property (nonatomic, retain) EMagChannelViewController *channelViewController;
+@property(nonatomic,strong) UIView *loadingView;
+@property(nonatomic,strong) EMagScrollView *channelView;
+@property(nonatomic,strong) UIView *menuView;
+@property(nonatomic,strong) UIView *bgView;
+@property (nonatomic, strong) NSString *requestUrl;
+@property (nonatomic, strong) NSURL *reqUrl;
+@property (nonatomic, strong) EMagChannelViewController *channelViewController;
 
 -(void)getChannels;
 -(NSMutableArray *)getPages;

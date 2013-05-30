@@ -9,6 +9,6 @@
 
 @interface EMagSender : UIButton
 
-@property(nonatomic,assign) id source;
+@property(nonatomic,weak) id source;
 
 @end

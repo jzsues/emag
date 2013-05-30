@@ -13,21 +13,19 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if ([paths count] > 0){
 		NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:file];
+        NSString *path = [paths[0] stringByAppendingPathComponent:file];
 		if(![fileManager fileExistsAtPath:path]){
 			NSMutableArray *fileData = [[NSMutableArray alloc] init];
             if([fileData writeToFile:path atomically:YES]){
                 
             }
 
-            [fileData release];
 		}
         NSMutableArray *fileData = [[NSMutableArray alloc] initWithContentsOfFile:path];
         [fileData addObject:data];
         if([fileData writeToFile:path atomically:YES]){
             
         }
-        [fileData release];
 	}
 }
 
@@ -35,13 +33,12 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if ([paths count] > 0){
 		NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:file];
+        NSString *path = [paths[0] stringByAppendingPathComponent:file];
 		if(![fileManager fileExistsAtPath:path]){
 			NSMutableArray *fileData = [[NSMutableArray alloc] init];
             if([fileData writeToFile:path atomically:YES]){
                 
             }
-            [fileData release];
 		}
         NSMutableArray *fileData = [[NSMutableArray alloc] initWithContentsOfFile:path];
         if(![fileData containsObject:data]){
@@ -50,7 +47,6 @@
                 
             }
         }    
-        [fileData release];
 	}
 }
 
@@ -58,7 +54,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if ([paths count] > 0){
 		NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:file];
+        NSString *path = [paths[0] stringByAppendingPathComponent:file];
 		if(![fileManager fileExistsAtPath:path]){
 			return nil;
 		}
@@ -72,12 +68,11 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if ([paths count] > 0){
 		NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:file];
+        NSString *path = [paths[0] stringByAppendingPathComponent:file];
 		if([fileManager fileExistsAtPath:path]){
 			NSMutableArray *fileData = [[NSMutableArray alloc] initWithContentsOfFile:path];
             [fileData removeObject:data];
             if([fileData writeToFile:path atomically:YES]){}
-            [fileData release];
 		}
 	}
 }

@@ -102,14 +102,14 @@
                         @"111+111+111",
                     
                         nil];
-        [self.layouts release];
+        self.layouts;
     }
     return self;
 }
 
 -(NSString *)getRandomLayout{
     int i = arc4random() % self.layouts.count;
-    return [self.layouts objectAtIndex:i];
+    return (self.layouts)[i];
 }
 
 -(NSArray *)getPanesFromLayout:(NSString *)layout frame:(CGRect)frame{
@@ -153,7 +153,7 @@
         }
         
        // int v = [[layoutData objectAtIndex:i] intValue];
-        NSString *item = [layoutData objectAtIndex:i] ;
+        NSString *item = layoutData[i] ;
        
         int total = 0;
         for(int j=0;j<item.length;j++){
@@ -206,14 +206,13 @@
             
             [view reloadView];
             [panes addObject:view];
-            [view release];
         }
         
         //[item release];
     }
 
     for(int i=0;i<panes.count;i++){
-        UIView *view = (EMagPaneView *)[panes objectAtIndex:i];
+        UIView *view = (EMagPaneView *)panes[i];
     }
     return panes;
 }
@@ -225,11 +224,10 @@
     }
     NSArray *panes = [self getPanesFromLayout:layout frame:pageView.bounds];
     for(int i=0;i< panes.count;i++){
-        EMagPaneView *pane = [panes objectAtIndex:i];
+        EMagPaneView *pane = panes[i];
         [pageView addSubview:pane];
     }
     pageView.paneCount = panes.count;
-    [panes release];
     return pageView;
 }
 
@@ -259,7 +257,7 @@
         if(currentCount > count){
             int diff = currentCount - count;
             for(int i = (pageView.subviews.count-1); i>=0 && diff > 0; i--){
-                UIView *v = [pageView.subviews objectAtIndex:i];
+                UIView *v = (pageView.subviews)[i];
                 if([v isMemberOfClass:[EMagPaneView class]]){
                     [v removeFromSuperview];
                     diff --;
@@ -267,18 +265,10 @@
             }
         }
         page++;
-        [pageView release];
     }
     
     return scrollView;
 }
 
-- (void)dealloc {
-	[layouts release];
-    [paneBackgroundColor release];
-    [scrollViewBackgroundColor release];
-    
-    [super dealloc];
-}
 
 @end

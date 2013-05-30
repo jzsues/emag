@@ -10,8 +10,8 @@
 
 @interface EMagChannelViewController : UIViewController<UIScrollViewDelegate>
 
-@property(nonatomic,retain) EMagScrollView *itemsView;
-@property(nonatomic,retain) NSMutableArray *items;
+@property(nonatomic,strong) EMagScrollView *itemsView;
+@property(nonatomic,strong) NSMutableArray *items;
 
 -(void)back;
 -(void)fresh;

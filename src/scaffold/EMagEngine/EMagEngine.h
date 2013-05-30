@@ -22,9 +22,9 @@
 }
 
 @property(nonatomic,assign) int paneSpacing;
-@property(nonatomic,retain) NSMutableArray *layouts;
-@property(nonatomic,retain) UIColor *paneBackgroundColor;
-@property(nonatomic,retain) UIColor *scrollViewBackgroundColor;
+@property(nonatomic,strong) NSMutableArray *layouts;
+@property(nonatomic,strong) UIColor *paneBackgroundColor;
+@property(nonatomic,strong) UIColor *scrollViewBackgroundColor;
 
 -(NSString *)getRandomLayout;
 -(NSArray *)getPanesFromLayout:(NSString *)layout frame:(CGRect)frame;

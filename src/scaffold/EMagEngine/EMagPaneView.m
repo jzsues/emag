@@ -39,7 +39,6 @@
         self.enableBorderTop = NO;
         
         self.image = [[EMagImageView alloc] initWithFrame:self.bounds];
-        [image release];
         [self addSubview:image];
         
         float w = self.bounds.size.width;
@@ -49,20 +48,16 @@
         self.borderLeft = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, h)];
         borderTop.backgroundColor = self.borderColor;
         borderLeft.backgroundColor = self.borderColor;
-        [borderTop release];
-        [borderLeft release];
         
         [self addSubview:borderTop];
         [self addSubview:borderLeft];
         
         self.titleView= [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, 30)];
-        [titleView release];
         
         self.title = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, w-10, 20)];
         title.font = [UIFont boldSystemFontOfSize:16];
         title.backgroundColor = [UIColor clearColor];
         [self.titleView addSubview:title];
-        [title release];
         
         [self addSubview:titleView];
     }
@@ -87,12 +82,12 @@
     float w = self.bounds.size.width;
     float h = self.bounds.size.height;
     
-    title.text = [self.data objectForKey:@"title"];
-    NSArray *medias = [self.data objectForKey:@"media"];
+    title.text = (self.data)[@"title"];
+    NSArray *medias = (self.data)[@"media"];
     if(medias!=nil && medias.count>0){
-        NSDictionary *media = [medias objectAtIndex:0];
-        NSString *mediaType = [media objectForKey:@"type"];
-        NSString *url = [media objectForKey:@"url"];
+        NSDictionary *media = medias[0];
+        NSString *mediaType = media[@"type"];
+        NSString *url = media[@"url"];
         if([mediaType isEqualToString:@"image"]){
             [image load:url];
         }
@@ -105,16 +100,5 @@
     [titleView setFrame:CGRectMake(0, 0, w, title.frame.size.height+10)];
 }
 
-- (void)dealloc {
-    [title release];
-    [content release];
-    [author release];
-    [date release];
-    [source release];
-    [image release];
-    [borderTop release];
-    [borderLeft release];
-    [super dealloc];
-}
 
 @end

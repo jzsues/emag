@@ -18,16 +18,14 @@
 +(void)get:(NSString *)url params:(NSMutableDictionary *)params delegate:(id)delegate success:(SEL)success error:(SEL)error{
     NSMutableString *paramsString = [[NSMutableString alloc] init];
     
-    [params retain];
     for(NSString *key in params){
-        [paramsString appendFormat:@"&%@=%@",key,[params objectForKey:key]];
+        [paramsString appendFormat:@"&%@=%@",key,params[key]];
     }
     
     NSString *requestString = [[NSString alloc] initWithFormat:@"%@%@",url,paramsString];
     NSURL *reqUrl = [[NSURL alloc] initWithString:requestString];
     
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:reqUrl];
-    [reqUrl release];
     
     [request setTimeOutSeconds:10];
     [request setUserInfo:params];
@@ -37,17 +35,13 @@
     
     [request startAsynchronous];   
     
-    [params release];
-    [paramsString release];
-    [requestString release];
 }
 
 +(void)getWebPage:(NSString *)url params:(NSMutableDictionary *)params delegate:(id)delegate success:(SEL)success error:(SEL)error{
     NSMutableString *paramsString = [[NSMutableString alloc] init];
     
-    [params retain];
     for(NSString *key in params){
-        [paramsString appendFormat:@"&%@=%@",key,[params objectForKey:key]];
+        [paramsString appendFormat:@"&%@=%@",key,params[key]];
     }
     
     
@@ -55,7 +49,6 @@
     NSURL *reqUrl = [[NSURL alloc] initWithString:requestString];
     
     ASIWebPageRequest *request = [[ASIWebPageRequest alloc] initWithURL:reqUrl];
-    [reqUrl release];
     
     request.delegate = self;
     [request setUrlReplacementMode:ASIReplaceExternalResourcesWithData];
@@ -69,9 +62,6 @@
     [request setDidFailSelector:error];
     [request startAsynchronous];  
     
-    [params release];
-    [paramsString release];
-    [requestString release];
 }
 
 @end

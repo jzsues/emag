@@ -16,13 +16,12 @@
     
     NSString *file = [[NSString alloc] initWithFormat:@"themes/%@/%@",[ResourceHelper  getUserDefaults:@"theme"],name];
 	NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
-	return [[[UIImage alloc] initWithContentsOfFile:path] autorelease];
+	return [[UIImage alloc] initWithContentsOfFile:path];
 }
 
 +(UIImage *) loadImage:(NSString *) name{
     NSString *realName = name;
 	NSString *path = [[NSBundle mainBundle] pathForResource:realName ofType:@"png"];
-    [realName release];
     
 	return [[UIImage alloc] initWithContentsOfFile:path];
 }

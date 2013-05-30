@@ -14,16 +14,16 @@
 		268140B115E35C8F006DDC11 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140A315E35C66006DDC11 /* HttpHelper.m */; };
 		268140B215E35C8F006DDC11 /* MessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140A515E35C66006DDC11 /* MessageHelper.m */; };
 		268140B315E35C8F006DDC11 /* ResourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140A715E35C66006DDC11 /* ResourceHelper.m */; };
-		2681410415E35E15006DDC11 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140B715E35CC9006DDC11 /* ASIAuthenticationDialog.m */; };
-		2681410515E35E15006DDC11 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140BA15E35CC9006DDC11 /* ASIDataCompressor.m */; };
-		2681410615E35E15006DDC11 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140BC15E35CC9006DDC11 /* ASIDataDecompressor.m */; };
-		2681410715E35E15006DDC11 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140BE15E35CC9006DDC11 /* ASIDownloadCache.m */; };
-		2681410815E35E15006DDC11 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C015E35CC9006DDC11 /* ASIFormDataRequest.m */; };
-		2681410915E35E15006DDC11 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C215E35CC9006DDC11 /* ASIHTTPRequest.m */; };
-		2681410A15E35E15006DDC11 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C615E35CC9006DDC11 /* ASIInputStream.m */; };
-		2681410B15E35E15006DDC11 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C815E35CC9006DDC11 /* ASINetworkQueue.m */; };
-		2681410C15E35E15006DDC11 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140CB15E35CC9006DDC11 /* ASIWebPageRequest.m */; };
-		2681410D15E35E15006DDC11 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140CD15E35CC9006DDC11 /* Reachability.m */; };
+		2681410415E35E15006DDC11 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140B715E35CC9006DDC11 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410515E35E15006DDC11 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140BA15E35CC9006DDC11 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410615E35E15006DDC11 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140BC15E35CC9006DDC11 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410715E35E15006DDC11 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140BE15E35CC9006DDC11 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410815E35E15006DDC11 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C015E35CC9006DDC11 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410915E35E15006DDC11 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C215E35CC9006DDC11 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410A15E35E15006DDC11 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C615E35CC9006DDC11 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410B15E35E15006DDC11 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140C815E35CC9006DDC11 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410C15E35E15006DDC11 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140CB15E35CC9006DDC11 /* ASIWebPageRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2681410D15E35E15006DDC11 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 268140CD15E35CC9006DDC11 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2681411115E35E88006DDC11 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2681410E15E35E30006DDC11 /* libxml2.dylib */; };
 		269EA76316DDBEBA00BBF2EA /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 269EA76116DDBEBA00BBF2EA /* loading.png */; };
 		269EA76416DDBEBA00BBF2EA /* loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 269EA76216DDBEBA00BBF2EA /* loading@2x.png */; };
@@ -54,7 +54,7 @@
 		26FFA43516E2F25800CF795E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FFA43416E2F25800CF795E /* Default-568h@2x.png */; };
 		5A2544F6150D9C4B0027ED41 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2544F5150D9C4B0027ED41 /* Icon@2x.png */; };
 		5A36658B1520618C00263467 /* channels.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A36658A1520618B00263467 /* channels.json */; };
-		5A42AFB4155B8698005B8078 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42AFB3155B8698005B8078 /* JSONKit.m */; };
+		5A42AFB4155B8698005B8078 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42AFB3155B8698005B8078 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5A42AFBD155BB65A005B8078 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A42AFBC155BB65A005B8078 /* Icon.png */; };
 		5A53C5C1150880A10000ACE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A53C5C0150880A10000ACE9 /* UIKit.framework */; };
 		5A53C5C3150880A10000ACE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A53C5C2150880A10000ACE9 /* Foundation.framework */; };
@@ -509,6 +509,7 @@
 				5A53C5B8150880A10000ACE9 /* Sources */,
 				5A53C5B9150880A10000ACE9 /* Frameworks */,
 				5A53C5BA150880A10000ACE9 /* Resources */,
+				DF05A09417568CE6005772AE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -599,6 +600,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DF05A09417568CE6005772AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5A53C5B8150880A10000ACE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -656,10 +673,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7,
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -684,10 +698,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7,
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -707,19 +718,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = armv7s;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "scaffold/scaffold-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "scaffold/scaffold-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = eMag;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7s;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -728,19 +740,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = armv7s;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "scaffold/scaffold-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "scaffold/scaffold-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = eMag;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = armv7s;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

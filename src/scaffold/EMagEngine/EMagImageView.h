@@ -11,10 +11,10 @@
 
 @interface EMagImageView : UIImageView
 
-@property (nonatomic, retain) UIActivityIndicatorView *loader;
-@property (nonatomic, retain) NSString *requestUrl;
-@property (nonatomic, retain) NSURL *reqUrl;
-@property (nonatomic, retain) ASIHTTPRequest *request;
+@property (nonatomic, strong) UIActivityIndicatorView *loader;
+@property (nonatomic, strong) NSString *requestUrl;
+@property (nonatomic, strong) NSURL *reqUrl;
+@property (nonatomic, strong) ASIHTTPRequest *request;
 
 -(void)load:(NSString *)url;
 -(void)render:(UIImage *)img;

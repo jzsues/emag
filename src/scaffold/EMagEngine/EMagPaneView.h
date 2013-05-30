@@ -13,16 +13,16 @@
 @interface EMagPaneView : EMagView
 
 
-@property(nonatomic,retain) UIView *titleView;
-@property(nonatomic,retain) UILabel *title;
-@property(nonatomic,retain) UILabel *content;
-@property(nonatomic,retain) UILabel *author;
-@property(nonatomic,retain) UILabel *date;
-@property(nonatomic,retain) UILabel *source;
-@property(nonatomic,retain) EMagImageView *image;
-@property(nonatomic,retain) UIView *borderTop;
-@property(nonatomic,retain) UIView *borderLeft;
-@property(nonatomic,retain) UIColor *borderColor;
+@property(nonatomic,strong) UIView *titleView;
+@property(nonatomic,strong) UILabel *title;
+@property(nonatomic,strong) UILabel *content;
+@property(nonatomic,strong) UILabel *author;
+@property(nonatomic,strong) UILabel *date;
+@property(nonatomic,strong) UILabel *source;
+@property(nonatomic,strong) EMagImageView *image;
+@property(nonatomic,strong) UIView *borderTop;
+@property(nonatomic,strong) UIView *borderLeft;
+@property(nonatomic,strong) UIColor *borderColor;
 @property(nonatomic,assign) BOOL enableBorderTop;
 @property(nonatomic,assign) BOOL enableBorderLeft;
 //1 text,2 image,3 audio,4 video

@@ -13,21 +13,15 @@
 
 @synthesize window;
 
-- (void)dealloc
-{
-    [window release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     [ResourceHelper setUserDefaults:@"default" forKey:@"theme"];
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     EMagMainViewController *c = [[EMagMainViewController alloc] init];
     self.window.rootViewController = c;
-    [c release];
     [self.window makeKeyAndVisible];
     return YES;
 }

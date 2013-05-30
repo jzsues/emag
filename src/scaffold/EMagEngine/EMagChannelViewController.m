@@ -16,11 +16,6 @@
 @synthesize itemsView;
 @synthesize items;
 
-- (void)dealloc {
-	[itemsView release];
-    [items release];
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -47,14 +42,12 @@
     [back setImage:[ResourceHelper loadImage:@"opr_back"] forState:UIControlStateSelected];
     [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
-    [back release];
     
     UIButton *fresh = [[UIButton alloc] initWithFrame:CGRectMake(320-32, h-32, 32, 32)];
     [fresh setImage:[ResourceHelper loadImage:@"opr_fresh"] forState:UIControlStateNormal];
     [fresh setImage:[ResourceHelper loadImage:@"opr_fresh"] forState:UIControlStateSelected];
     [fresh addTarget:self action:@selector(fresh) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:fresh];
-    [fresh release];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -74,16 +67,14 @@
     eMagEngine.paneBackgroundColor = [UIColor whiteColor];
     eMagEngine.scrollViewBackgroundColor = [UIColor blackColor];
     self.itemsView = [eMagEngine getEMagScrollView:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-32) pageFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-32) count:self.items.count layout:nil];
-    [itemsView release];
     itemsView.delegate = self;
     itemsView.backgroundColor = [UIColor whiteColor];
-    [eMagEngine release];
     
     NSArray *panes = [itemsView getPanes];
     for (int i =0;i< panes.count;i++) {
-        EMagPaneView *v = [panes objectAtIndex:i];
+        EMagPaneView *v = panes[i];
         v.title.textColor = [UIColor whiteColor];
-        v.data = [self.items objectAtIndex:i];
+        v.data = (self.items)[i];
         [v reloadData];
         v.titleView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
         v.titleView.frame = CGRectMake(v.titleView.frame.origin.x, v.frame.size.height-v.titleView.frame.size.height, v.titleView.frame.size.width, v.titleView.frame.size.height);

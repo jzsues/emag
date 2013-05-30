@@ -19,7 +19,6 @@
         EMagSender *btn = [[EMagSender alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         btn.source = self;
         self.sender = btn;
-        [btn release];
         
         [self addSubview:btn];
         // Initialization code
@@ -48,11 +47,6 @@
 }
 */
 
-- (void)dealloc {
-    [sender release];
-    [data release];
-    [super dealloc];
-}
 
 
 @end

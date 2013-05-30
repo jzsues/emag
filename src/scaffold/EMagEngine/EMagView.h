@@ -10,8 +10,8 @@
 
 @interface EMagView : UIScrollView
 
-@property(nonatomic,retain) EMagSender *sender;
-@property(nonatomic,retain) NSMutableDictionary *data;
+@property(nonatomic,strong) EMagSender *sender;
+@property(nonatomic,strong) NSMutableDictionary *data;
 
 -(void)onClick:(id)target action:(SEL)action;
 -(void)reloadView;

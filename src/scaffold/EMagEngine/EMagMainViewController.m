@@ -36,13 +36,6 @@
     return self;
 }
 
-- (void)dealloc {
-	[loadingView release];
-    [channelView release];
-    [bgView release];
-    [channelViewController release];
-    [super dealloc];
-}
 
 #pragma mark - EMag data api
 
@@ -54,7 +47,6 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"channels" ofType:@"json"];
     NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     NSMutableArray *data = [jsonString mutableObjectFromJSONString];
-    [jsonString release];
     
     if(data !=nil && data.count > 0){
         EMagEngine *magEngine = [[EMagEngine alloc] init];
@@ -63,18 +55,16 @@
         
         self.channelView = [magEngine getEMagScrollView:CGRectMake(0, 15, 320, h-30) pageFrame:CGRectMake(15, 0, 230, h-30) count:data.count layout:@"11-11-11-11"];
         channelView.delegate = self;
-        [channelView release];
-        [magEngine release];
         
         NSArray *panes = [channelView getPanes];
         for (int i =0;i< panes.count;i++) {
-            EMagPaneView *v    = [panes objectAtIndex:i];
+            EMagPaneView *v    = panes[i];
             v.title.textColor  = [UIColor whiteColor];
             v.enableBorderTop  = NO;
             v.enableBorderLeft = NO;
             v.title.textAlignment = UITextAlignmentCenter;
             [v reloadView];
-            [v setData:[data objectAtIndex:i]];
+            [v setData:data[i]];
             [v reloadData];
             v.image.contentMode = UIViewContentModeCenter;
             [v onClick:self action:@selector(panePressed:)];
@@ -107,7 +97,6 @@
     float w = self.view.frame.size.width;
     
     self.bgView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"loading"]];
-    [bgView release];
     [self.view addSubview:bgView];
     
     //loading view
@@ -118,7 +107,6 @@
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"logo"]];
     logoView.frame = CGRectMake(20,40, 160, 40);
     [loadingView addSubview:logoView];
-    [logoView release];
     
     UILabel *copyright = [[UILabel alloc] initWithFrame:CGRectMake(20,h-60, 200, 30)];
     copyright.text = @"©2012 http://github.com/zhiyu";
@@ -126,19 +114,16 @@
     copyright.textColor = [UIColor whiteColor];
     copyright.backgroundColor = [UIColor clearColor];
     [loadingView addSubview:copyright];
-    [copyright release];
     
     UIButton *toHome = [[UIButton alloc] initWithFrame:CGRectMake(250, h-80, 50, 50)];
     [toHome setImage:[ResourceHelper loadImage:@"opr_home"] forState:UIControlStateNormal];
     [toHome setImage:[ResourceHelper loadImage:@"opr_home"] forState:UIControlStateSelected];
     [toHome addTarget:self action:@selector(showMainView) forControlEvents:UIControlEventTouchUpInside];
     [loadingView addSubview:toHome];
-    [toHome release];
     
     [self.view addSubview:loadingView];
     
     self.channelViewController = [[EMagChannelViewController alloc] init];
-    [channelViewController release];
     
     
     [self getChannels];
@@ -150,31 +135,25 @@
     UIImageView *menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_download"]];
     menuItemView.frame = CGRectMake(0,h-295, 32, 32);
     [menuView addSubview:menuItemView];
-    [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_clear"]];
     menuItemView.frame = CGRectMake(0,h-235, 32, 32);
     [menuView addSubview:menuItemView];
-    [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_refresh"]];
     menuItemView.frame = CGRectMake(0,h-175, 32, 32);
     [menuView addSubview:menuItemView];
-    [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_set"]];
     menuItemView.frame = CGRectMake(0,h-115, 32, 32);
     [menuView addSubview:menuItemView];
-    [menuItemView release];
     
     menuItemView = [[UIImageView alloc] initWithImage:[ResourceHelper loadImage:@"opr_add"]];
     menuItemView.frame = CGRectMake(0,h-55, 32, 32);
     [menuView addSubview:menuItemView];
-    [menuItemView release];
     
     menuView.alpha = 0;
     [self.view addSubview:menuView];
-    [menuView release];
     
     [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(showMainView) userInfo:nil repeats:NO];
 }
@@ -204,7 +183,6 @@
         [self showChannel:data];
     }else{
         self.reqUrl = [[NSURL alloc] initWithString: requestUrl];
-        [reqUrl release];
         
         ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:reqUrl];
         [request setTimeOutSeconds:10];
@@ -231,7 +209,7 @@
     if([reqUrl isEqual:request.url]){
         [MessageHelper hide];
         NSString *responseString = [request responseString];
-        NSArray *data = [[[responseString objectFromJSONString] objectForKey:@"data"] objectForKey:@"articles"];
+        NSArray *data = [responseString objectFromJSONString][@"data"][@"articles"];
         if(data.count > 0){
             [self showChannel:data];
             NSData *cache = [NSKeyedArchiver archivedDataWithRootObject:data];
@@ -241,7 +219,6 @@
         }
     }
     
-    [request release];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -252,7 +229,6 @@
     }else{
         [MessageHelper show:self message:@"没有数据了" detail:nil delay:1];
     }
-    [request release];
 }
 
 #pragma mark - EMagScrollView Delegate
